@@ -9,6 +9,7 @@
   
   body {
     background-color: rgba(238, 86, 111, 0.342);
+    overflow: hidden;
   }
   
   input {
@@ -16,7 +17,7 @@
   }
   
   .slider-wrapper > * {
-    border: solid 1px tomato;
+    border: solid 1px rgb(75, 22, 13);
   }
   
   .slider-wrapper {
@@ -35,13 +36,51 @@
   }
   
   .carousel {
+    width: 400%;
+    height: 100%;
+    display: flex;
+    transition: all 0.5s ease-out;
   }
   
   .slides {
     grid-area: slides;
+  
+    overflow: hidden;
   }
   
   .slide {
+    width: 25%;
+    height: 100%;
+  }
+  
+  .slide:nth-child(1) {
+    background: url(./images/bond.png) center no-repeat;
+    background-size: contain;
+  }
+  .slide:nth-child(2) {
+    background: url(./images/drunk.jpg) center no-repeat;
+    background-size: contain;
+  }
+  .slide:nth-child(3) {
+    background: url(./images/psych.png) center no-repeat;
+    background-size: contain;
+  }
+  .slide:nth-child(4) {
+    background: url(./images/rayan.jpg) center no-repeat;
+    background-size: contain;
+  }
+  
+  #s1:checked ~ .slides .carousel {
+    transform: translate(-0%);
+  }
+  #s2:checked ~ .slides .carousel {
+    transform: translate(-25%);
+  }
+  #s3:checked ~ .slides .carousel {
+    transform: translate(-50%);
+  }
+  #s4:checked ~ .slides .carousel {
+    transform: translate(-75%);
   }
   
   .titles {
@@ -70,7 +109,7 @@
   .control-wrapper:hover .control {
     border-color: white;
     background-color: white;
-    transition: all 0.3s ;
+    transition: all 0.3s ease-out;
   }
   
   .control-wrapper:active .control {
