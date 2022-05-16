@@ -10,3 +10,61 @@
   input {
     display: none;
   }
+  
+  .slider-wrapper > * {
+    border: solid 1px tomato;
+  }
+  
+  .slider-wrapper {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 4fr 0.5fr;
+    grid-template-areas:
+      "slides slides"
+      "titles controls";
+    row-gap: 3%;
+  
+    min-height: 75vh;
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .carousel {
+  }
+  
+  .slides {
+    grid-area: slides;
+  }
+  
+  .slide {
+  }
+  
+  .titles {
+    grid-area: titles;
+  }
+  
+  .title {
+  }
+  
+  .controls {
+    grid-area: controls;
+  }
+  
+  .control-wrapper {
+  }
+  
+  .control {
+  }
+  
+  @media screen and (max-width: 768px) {
+    .slider-wrapper {
+      grid-template-columns: 1fr;
+      grid-template-rows: 5fr 0.5fr 1.5fr;
+      grid-template-areas:
+        "slides"
+        "controls"
+        "titles";
+    }
+  }
+  
