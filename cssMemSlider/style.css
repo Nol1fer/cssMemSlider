@@ -9,15 +9,10 @@
   
   body {
     background-color: rgba(238, 86, 111, 0.342);
-    overflow: hidden;
   }
   
   input {
     display: none;
-  }
-  
-  .slider-wrapper > * {
-    border: solid 1px rgb(75, 22, 13);
   }
   
   .slider-wrapper {
@@ -35,17 +30,17 @@
     padding: 1rem;
   }
   
+  .slides {
+    grid-area: slides;
+  
+    overflow: hidden;
+  }
+  
   .carousel {
     width: 400%;
     height: 100%;
     display: flex;
     transition: all 0.5s ease-out;
-  }
-  
-  .slides {
-    grid-area: slides;
-  
-    overflow: hidden;
   }
   
   .slide {
@@ -70,24 +65,33 @@
     background-size: contain;
   }
   
-  #s1:checked ~ .slides .carousel {
+  #s1:checked ~ .slides .carousel,
+  #s1:checked ~ .titles .carousel {
     transform: translate(-0%);
   }
-  #s2:checked ~ .slides .carousel {
+  #s2:checked ~ .slides .carousel,
+  #s2:checked ~ .titles .carousel {
     transform: translate(-25%);
   }
-  #s3:checked ~ .slides .carousel {
+  #s3:checked ~ .slides .carousel,
+  #s3:checked ~ .titles .carousel {
     transform: translate(-50%);
   }
-  #s4:checked ~ .slides .carousel {
+  #s4:checked ~ .slides .carousel,
+  #s4:checked ~ .titles .carousel {
     transform: translate(-75%);
   }
   
   .titles {
     grid-area: titles;
+  
+    font: 1.5em sans-serif;
+    overflow: hidden;
   }
   
   .title {
+    width: 25%;
+    height: 100%;
   }
   
   .controls {
@@ -145,6 +149,9 @@
         "slides"
         "controls"
         "titles";
+    }
+    .controls {
+      justify-content: center;
     }
   }
   
