@@ -1,0 +1,157 @@
+:root {
+    --color-control-main: rgb(106, 26, 211);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: rgba(238, 86, 111, 0.342);
+  }
+  
+  input {
+    display: none;
+  }
+  
+  .slider-wrapper {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 4fr 0.5fr;
+    grid-template-areas:
+      "slides slides"
+      "titles controls";
+    row-gap: 3%;
+  
+    min-height: 75vh;
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+  
+  .slides {
+    grid-area: slides;
+  
+    overflow: hidden;
+  }
+  
+  .carousel {
+    width: 400%;
+    height: 100%;
+    display: flex;
+    transition: all 0.5s ease-out;
+  }
+  
+  .slide {
+    width: 25%;
+    height: 100%;
+  }
+  
+  .slide:nth-child(1) {
+    background: url(./images/bond.png) center no-repeat;
+    background-size: contain;
+  }
+  .slide:nth-child(2) {
+    background: url(./images/drunk.jpg) center no-repeat;
+    background-size: contain;
+  }
+  .slide:nth-child(3) {
+    background: url(./images/psych.png) center no-repeat;
+    background-size: contain;
+  }
+  .slide:nth-child(4) {
+    background: url(./images/rayan.jpg) center no-repeat;
+    background-size: contain;
+  }
+  
+  #s1:checked ~ .slides .carousel,
+  #s1:checked ~ .titles .carousel {
+    transform: translate(-0%);
+  }
+  #s2:checked ~ .slides .carousel,
+  #s2:checked ~ .titles .carousel {
+    transform: translate(-25%);
+  }
+  #s3:checked ~ .slides .carousel,
+  #s3:checked ~ .titles .carousel {
+    transform: translate(-50%);
+  }
+  #s4:checked ~ .slides .carousel,
+  #s4:checked ~ .titles .carousel {
+    transform: translate(-75%);
+  }
+  
+  .titles {
+    grid-area: titles;
+  
+    font: 1.5em sans-serif;
+    overflow: hidden;
+  }
+  
+  .title {
+    width: 25%;
+    height: 100%;
+  }
+  
+  .controls {
+    grid-area: controls;
+  
+    display: flex;
+    justify-content: end;
+  }
+  
+  .control-wrapper {
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .control-wrapper:hover .control {
+    border-color: white;
+    background-color: white;
+    transition: all 0.3s ease-out;
+  }
+  
+  .control-wrapper:active .control {
+    opacity: 0.3;
+  }
+  
+  .control {
+    width: 0.7rem;
+    height: 0.7rem;
+    border-radius: 100%;
+    border: 0.13rem solid var(--color-control-main);
+    background-color: var(--color-control-main);
+  }
+  
+  #s1:checked ~ .controls .control-wrapper:nth-child(1) .control {
+    background-color: transparent;
+  }
+  #s2:checked ~ .controls .control-wrapper:nth-child(2) .control {
+    background-color: transparent;
+  }
+  #s3:checked ~ .controls .control-wrapper:nth-child(3) .control {
+    background-color: transparent;
+  }
+  #s4:checked ~ .controls .control-wrapper:nth-child(4) .control {
+    background-color: transparent;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .slider-wrapper {
+      grid-template-columns: 1fr;
+      grid-template-rows: 5fr 0.5fr 1.5fr;
+      grid-template-areas:
+        "slides"
+        "controls"
+        "titles";
+    }
+    .controls {
+      justify-content: center;
+    }
+  }
+  
